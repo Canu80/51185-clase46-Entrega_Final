@@ -1,0 +1,196 @@
+paths:
+  /api/carts:
+    get:
+      summary: Obtener todos los carritos.
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El carrito se obtuvo correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Carts"
+        "500":
+          description: Error interno del servidor.         
+  /api/carts/{cid}:
+    get:
+      summary: Obtener un carrito por su ID (cid).
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito que quiero obtener.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: El carrito se obtuvo correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Carts"
+        "500":
+          description: Error interno del servidor.       
+  /api/carts/:
+    post:
+      summary: Crea un carrito nuevo.
+      tags:
+        - Carritos
+      responses:
+        "200":
+          description: El carrito fue creado de forma exitosa.
+          content:
+            application/json:
+              schema:
+                type: Array
+                items:
+                  $ref: "#components/schemas/Carts"
+        "500":
+          description: Error interno del servidor.    
+    put: 
+      summary: Carga en un carrito todos los productos disponibles.
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito que quiero cargar con todos los productos.
+          schema:
+            $type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateCart'
+      responses:
+        "200":
+          description: El carrito actualizó con todos los productos.
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Carts"
+        "500":
+          description: Error interno del servidor.
+    delete:
+      summary: Elimina todos los productos del carrito traído segun su ID (cid).
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito del cual se quiere eliminar todos los productos que contiene.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Se eliminaron los productos correctamente.
+        "500":
+          description: Error interno del servidor.         
+  /api/carts/{cid}/products/{pid}:
+    post:
+      summary: Guarda en el carrito, según su ID (cid), un producto elegido por su ID (pid).
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito en el cual se quiere agregar el producto elegido según su ID (pid).
+        - name: pid
+          in: path
+          required: true
+          description: El pid es el ID del producto que se quiere agregar al carrito.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: El producto se agrego correctamente.
+        "500":
+          description: Error interno del servidor.
+    put: 
+      summary: Modifica la cantidad del producto traído por su ID (pid), que se encuentra en el carrito traído por id (cid).
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito en el que tengo el producto del cual quiero modifcar la cantidad.
+        - name: pid
+          in: path
+          required: true
+          description: El pid es el ID del producto en el carrito del cual quiero modificar la cantidad.  
+          schema:
+            $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateCart'
+      responses:
+        "200":
+          description: La cantidad del producto en el carrito seleccionado, se actualizó correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Carts"
+        "500":
+          description: Error interno del servidor.
+    delete:
+      summary: Elimina del carrito traído según su ID (cid), el producto elegido según su ID (pid).
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito del cual se quiere eliminar todos los productos que contenga.
+        - name: pid
+          in: path
+          required: true
+          description: El pid es el ID del producto que se quiere eliminar del carrito.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Se eliminó el producto correctamente.
+        "500":
+          description: Error interno del servidor.
+  /api/carts/{cid}/purchase/:
+    post:
+      summary: Hace efectiva la compra de los productos que se encuentran en el carrito traído por ID.
+      tags:
+        - Carritos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: El cid es el ID del carrito de cual se quiere efectivizar la compra.
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: La compra se realizó exitosamente.
+        "500":
+          description: Error interno del servidor.
+
+
+components:
+  schemas:    
+    Carts:
+      type: ObjectId
+      properties:
+        products:
+          type: String
+          description: ID del producto elegido.
+        quantity:
+          type: String
+          description: Cantidad del producto en el carrito.   
+      
