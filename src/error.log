@@ -1,0 +1,8 @@
+{"level":"fatal","message":"Fatal"}
+{"level":"error","message":"Error"}
+{"level":"warn","message":"!Alerta!"}
+{"level":"info","message":"Info"}
+{"level":"info","message":"Se ha actualizado la contraseña de usuario"}
+{"level":"info","message":"Se ha actualizado la contraseña de usuario"}
+{"level":"info","message":"Un usuario ha iniciado sesión"}
+{"level":"info","message":"Se ha cerrado la sesión del usuario"}
