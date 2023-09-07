@@ -5,6 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test1": "mocha test/products.test.js",
     "test2": "mocha test/carts.test.js",
     "test3": "mocha test/sessions.test.js"
