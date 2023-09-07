@@ -113,7 +113,7 @@ usersController.deleteInactiveUsers = async (req, res) => {
   try {
     const inactiveUsers = await usersModel.find({
       last_connection: {
-        $lt: new Date(Date.now() - 10 * 60 * 1000),
+        $lt: new Date(Date.now() - 48 * 60 * 60 * 1000),
       },
     });
     if (inactiveUsers.length > 0) {
