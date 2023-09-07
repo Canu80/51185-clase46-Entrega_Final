@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-8">
+    <h3 class="white-text">¿Cómo podemos ayudarte?</h3>
+    <br>
+    <h5 class="white-text">Una persona de nuestro equipo se pondrá en contacto para ayudarte.</h5>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <!-- Aquí puedes mostrar el nombre del usuario si es relevante para tu chat -->
+        <!-- <p>Usuario: {{user.username}}</p> -->
+        <div id="chat-container">
+          <div id="messageLogs"></div>
+          <input id="chatbox" class="form-control" placeholder="Escribe tu mensaje...">
+        </div>
+        <button id="sendMessage" class="btn btn-primary btn-block btn-sm">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+
+<style>
+  /* Estilos personalizados para el chat */
+  .white-text {
+    color: white;
+  }
+
+  #chat-container {
+    background-color: white; /* Fondo blanco para el contenedor de chat */
+    padding: 15px;
+    border-radius: 5px;
+    height: 300px; /* Altura fija para la ventana de chat, ajusta según tus necesidades */
+    overflow-y: scroll; /* Barra de desplazamiento vertical si el contenido excede la altura */
+    margin-bottom: 10px;
+  }
+
+  #messageLogs {
+    /* Estilos para los mensajes en el chat */
+    margin: 0;
+    padding: 0;
+  }
+
+  #chatbox {
+    /* Estilos para el cuadro de entrada de mensajes */
+    margin-top: 10px;
+  }
+</style>

@@ -1,0 +1,17 @@
+<h3 class="white-text">Mascotas perdidas</h3>
+
+<div class="gallery">
+  {{#each lostPets}}
+  <div class="pet-card">
+    <div class="pet-card-inner">
+      <img src="/img/{{imageFilename}}" alt="{{name}}" class="pet-image">
+      <div class="pet-description">
+        <h4>{{name}}</h4>
+        <p>Me llamo {{name}}, tengo {{age}} años.</p>
+        <p>Me perdí hace {{daysLost}} días en la {{location}}.</p>
+        <p>Si me ven, por favor comunicarse al {{contactNumber}}. Gracias.</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

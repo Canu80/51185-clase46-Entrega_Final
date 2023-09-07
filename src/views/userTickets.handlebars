@@ -1,0 +1,19 @@
+<h3 class="white-text">Tus Compras</h3>
+<br>
+{{#if tickets.length}}
+  <div class="row">
+    {{#each tickets}}
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Código de compra: {{this.code}}</h6>
+            <p>Fecha de compra: {{this.purchase_datetime}}</p>
+            <p>Monto total: ${{this.amount}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <h5>Tu no tienes compras hasta el momento.</h5>
+{{/if}}

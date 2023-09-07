@@ -1,0 +1,15 @@
+<h3 class="white-text">Mascotas encontradas</h3>
+
+<div class="gallery">
+  {{#each foundPets}}
+  <div class="pet-card">
+    <div class="pet-card-inner">
+      <img src="/img/{{imageFilename}}" alt="{{name}}" class="pet-image">
+      <div class="pet-description">
+        <p>Me llamo {{name}}, y me alegra avisarles que me encuentro sano y a salvo en mi casa junto a mi familia.</p>
+        <p>Muchas gracias por ayudarme.</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

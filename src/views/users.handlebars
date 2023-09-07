@@ -1,0 +1,33 @@
+<h3 class="white-text">Lista de Usuarios</h3>
+<br>
+<div class="user-list">
+    {{#each users}}
+    <div class="user-box">
+        <h4>Usuario</h4>
+        <ul>
+            <li><strong>Nombre completo:</strong> {{nombre}}</li>
+            <li><strong>Email:</strong> {{email}}</li>
+            <li><strong>Rol:</strong> <span id="userRole-{{_id}}">{{rol}}</span></li>
+        </ul>
+
+        <div class="user-actions">
+            <form class="change-role-form" data-user-id="{{_id}}">
+                <input type="hidden" name="_method" value="PUT">
+                <select name="newRole">
+                    <option value="Usuario">Usuario</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                <button type="submit" class="btn btn-primary btn-sm">Cambiar el rol</button>
+            </form>
+            <br>
+            <form id="deleteUserForm-{{_id}}" action="/api/users/users/{{_id}}" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="button" class="btn btn-danger btn-block btn-sm" onclick="deleteUser('{{_id}}')">Eliminar usuario</button>
+            </form>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
+<script src="/js/users.js"></script>

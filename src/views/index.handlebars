@@ -1,0 +1,67 @@
+<div class="jumbotron welcome-box-green">
+  <h3 class="display-5">¡Bienvenido a Pets, tu tienda en línea para mimar a tus mascotas!</h3>
+  <p>En Pets, entendemos lo especial que son nuestras mascotas. Nuestra tienda en línea está repleta de
+    productos de alta calidad que harán que tus mascotas se sientan amadas y cuidadas.</p>
+  <p>Además de ofrecer una amplia gama de alimentos, juguetes y accesorios, Pets tiene un propósito único: ayudarte a
+    reunir a las mascotas perdidas con sus dueños. Si alguna vez te encuentras con una mascota en la vía pública o
+    pierdes la tuya, aquí puedes publicarlo para que todos puedan regresar a casa.</p>
+  <p class="lead">Explora nuestra tienda y únete a nuestra comunidad amantes de los animales.</p>
+</div>
+<h4 class="white-text">Mascotas perdidas</h4>
+<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicadores de las diapositivas -->
+  <ol class="carousel-indicators">
+    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#imageCarousel" data-slide-to="1"></li>
+    <li data-target="#imageCarousel" data-slide-to="2"></li>
+    <!-- Agrega más indicadores según la cantidad de imágenes -->
+  </ol>
+
+  <!-- Diapositivas del carrusel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/01.jpg" class="d-block w-100" alt="Imagen 01">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/02.jpg" class="d-block w-100" alt="Imagen 02">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/03.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/04.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/05.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/06.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/07.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/08.jpg" class="d-block w-100" alt="Imagen 03">
+    </div>
+  </div>
+
+  <!-- Controles del carrusel -->
+  <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+<script>
+  // Inicializa el carrusel
+  $(document).ready(function () {
+    $('#imageCarousel').carousel({
+      interval: 5000 // Cambia la duración en milisegundos (en este ejemplo, 5000 = 5 segundos)
+    });
+  });
+</script>
+{{!--
+<script src="/main.js"></script> --}}

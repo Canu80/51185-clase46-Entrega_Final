@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th class="white-text">Imagen</th>
+                    <th class="white-text">Producto</th>
+                    <th class="white-text">Cantidad</th>
+                    <th class="white-text">Precio</th>
+                    <th class="white-text">Subtotal</th>
+                </tr>
+            </thead>
+        </table>
+        {{#each products}}
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{thumbnail}}" class="center-image" height="75" alt="{{title}}">
+                        </div>
+                        <div class="col-md-3">
+                            <h5 class="card-title">{{title}}</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <input type="number" class="form-control quantity" value="{{quantity}}"
+                                    onchange="updateSubtotals(this)">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text price">${{price}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text subtotal">$<span class="subtotal-value"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <form action="/api/carts/{{cid}}/products/{{pid}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="white-text text-right"><strong>Costo total: $<span
+                                    id="totalValue">{{total}}</span></strong></th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="align-right">
+                <button id="purchaseButton" data-cart-id="{{cid}}"
+                    class="btn btn-primary btn-sm custom-button-width">Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/purchase.js"></script>
